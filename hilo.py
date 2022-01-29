@@ -14,7 +14,7 @@ class Player:
     def check_score(self):
 
         if self.score <= 0:
-            print('Game Over. Thanks for playing.')
+            print('Game Over. Thanks for playing.\n')
             quit()
         else:
             pass
@@ -40,12 +40,12 @@ class Game:
 
         elif (continue_game == 'n') or (continue_game == 'N'):
 
-            print('Thanks for playing. :-)')
+            print('Thanks for playing. :-)\n')
             return
 
         else:
 
-            print('Thanks for playing.')
+            print('Thanks for playing.\n')
             return
 
     

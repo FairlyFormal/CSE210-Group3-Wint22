@@ -1,14 +1,22 @@
+import random 
+
+
+
 class Words():
 
 
     def __init__(self):
 
-        self.word_list = []
-        self.random_word = ''
+        self._word_list = ['bear', 'cat', 'dog', 'pig', 'cow', 'moose', 'fox'] #Simple words.
+        self.random_word = select_random_word() #Will generate a random word from word list.
     
-    def select_random_word():
-        
-        pass
+        self.word_length = len(self._random_word) #Will use this to communicate with Terminal on how many _ there are in the log.
 
-    #responsibilities: keep list of words, pick random word, keep random word private, ask input from user
-    pass
+
+    def select_random_word(self):
+
+        random_word = random.choice(self._word_list) #Selects a random word from the word list.
+
+        return random_word #Returns said random word.
+
+

@@ -16,17 +16,13 @@ class Terminal():
 
         hidden_word_underscores = []
 
-
-        for x in Words.word_length: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
+        for i in Words.word_length: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
 
             hidden_word_underscores.append("_" + " ") #Adds underscores to the hidden_word_underscores list. And a space to make it more readable: ____ vs. _ _ _ _ (Remember that it will affect index.)
         
-
-    def show_hidden_word(self): #Prints the hidden_word_underscores, the _ will be replaced with the letter from the word.
-
-
         print(hidden_word_underscores)
-        
+
+    # def show_hidden_word(self): #Prints the hidden_word_underscores, the _ will be replaced with the letter from the word.
 
 
 
@@ -46,7 +42,6 @@ class Terminal():
         if self.user_guess in Words.random_word: #If the user input is inside the random word...
             
             letter = self.user_guess
-
             # Put the logic of replacing the word in the Underscore_list here:...
             # Find the index of the letter in the hidden word...
 
@@ -59,7 +54,7 @@ class Terminal():
         else:
             
             Stickman.remove_section #Removes a section from the stickman.
-            stickman.lives -= 1 #Takes away a life from the stickman's lives.
+            Stickman.lives -= 1 #Takes away a life from the stickman's lives.
             self.show_hidden_word() #Shows the hidden word.
             Stickman.draw_stickman() #redraws the stickman after a section ^^^ has been removed.
 

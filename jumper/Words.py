@@ -8,7 +8,7 @@ class Words():
     def __init__(self):
 
         self._word_list = ['bear', 'cat', 'dog', 'pig', 'cow', 'moose', 'fox'] #Simple words.
-        self.random_word = select_random_word() #Will generate a random word from word list.
+        self.random_word = Words.select_random_word(self) #Will generate a random word from word list.
     
         self.word_length = len(self._random_word) #Will use this to communicate with Terminal on how many _ there are in the log.
 

@@ -1,22 +1,22 @@
-from Words.py import Words
-from Stickman.py import Stickman
-from Commander.py import Commander
+from Words import Words
+import Stickman
+import Commander
 
 class Terminal():
     
     def __init__(self):
-
+        self.word = Words()
         self.user_guess = input('Guess a letter [a-z]: ') #May need to add something to make sure the correct values are put in.
 
     
-    def print_hidden_word(self): 
+    def print_hidden_word(): 
         
         #This will print the underscores of the hidden word to the console inside of a list.
         #This is so we can reference the list and replace underscores with the actual guessed letter.
 
         hidden_word_underscores = []
 
-        for i in Words.word_length: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
+        for i in self.word.word_length: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
 
             hidden_word_underscores.append("_" + " ") #Adds underscores to the hidden_word_underscores list. And a space to make it more readable: ____ vs. _ _ _ _ (Remember that it will affect index.)
         

@@ -48,7 +48,6 @@ class Actor:
             Point: The actor's position in 2d space.
         """
         return self._position
-    
     def get_text(self):
         """Gets the actor's textual representation.
         

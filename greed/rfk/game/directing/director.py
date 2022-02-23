@@ -85,6 +85,8 @@ class Director:
         rock_or_gem = ['*', chr(48)]
  
         for n in range(1):
+            #spawn a new artifact is there is less than 125 items in play
+
             if len(cast.get_all_actors()) < 125:
                 text = random.choice(rock_or_gem)
 
@@ -113,19 +115,20 @@ class Director:
 
 
         for artifact in artifacts:
+            #loop for artifacts falling and colision detection
 
             artifact.move_next(max_x, max_y)
 
-            if robot.get_position().equals(artifact.get_position()) and artifact.get_text() == '*':
-                # Below might be code to fix colission detection. each column is 15 pixels wide. our robot is 5 chracter wide
-                # this may mean we can just check if the artifact is the x position or the 75 pixels to the right.
-                # replace robot.get_position().equals(artifact.get_position()) with the line below and test.
-                #if artifact.get_position() in range(robot.get_position(),robot.get_position()+75)
+            #artifacts all fall
+
+            if artifact.get_text() == '*' and robot.get_position().get_y() == artifact.get_position().get_y() and artifact.get_position().get_x() in range(robot.get_position().get_x(),robot.get_position().get_x()+40):
+                #compare x and y or robot and all artifacts. If it touches a gem, add a point
 
                 self.score += 1
                 cast.remove_actor("artifacts", artifact)
 
-            elif robot.get_position().equals(artifact.get_position()) and artifact.get_text() == chr(48):
+            elif artifact.get_text() == chr(48) and robot.get_position().get_y() == artifact.get_position().get_y() and artifact.get_position().get_x() in range(robot.get_position().get_x(),robot.get_position().get_x()+40):
+                #compare x and y or robot and all artifacts. If it touches a rock, lose a point
 
                 self.score -= 1
                 cast.remove_actor("artifacts", artifact)

@@ -85,7 +85,7 @@ class Director:
         rock_or_gem = ['*', chr(48)]
  
         for n in range(1):
-            if len(cast._actors) < 50:
+            if len(cast.get_all_actors()) < 125:
                 text = random.choice(rock_or_gem)
 
                 x = random.randint(1, COLS - 1)
@@ -105,6 +105,8 @@ class Director:
                 artifact.set_color(color)
                 artifact.set_position(position)
                 cast.add_actor("artifacts", artifact)
+            else:
+                pass
 
 
 
@@ -115,6 +117,10 @@ class Director:
             artifact.move_next(max_x, max_y)
 
             if robot.get_position().equals(artifact.get_position()) and artifact.get_text() == '*':
+                # Below might be code to fix colission detection. each column is 15 pixels wide. our robot is 5 chracter wide
+                # this may mean we can just check if the artifact is the x position or the 75 pixels to the right.
+                # replace robot.get_position().equals(artifact.get_position()) with the line below and test.
+                #if artifact.get_position() in range(robot.get_position(),robot.get_position()+75)
 
                 self.score += 1
                 cast.remove_actor("artifacts", artifact)

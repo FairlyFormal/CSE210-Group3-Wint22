@@ -1,6 +1,8 @@
 import Words
 from Terminal_Butler import Terminal
-import Stickman
+from Stickman import Stickman
+
+
 
 
 #RESPONSIBILITIES:
@@ -16,16 +18,17 @@ class Commander():
 
     def __init__(self):
         self.terminal = Terminal()
+        self.stickman = Stickman()
         pass
 
 
     
     def start_game(self): #Initializes all the processes from the different classes.
 
-        Terminal.print_hidden_word()
+        self.terminal.print_hidden_word()
         #Prints the hidden word in _____ underscores.
-        Stickman.draw_stickman() #Draws the stickman.
-        Terminal.user_guess #Prompts the user to input a letter.
+        self.stickman.draw_stickman() #Draws the stickman.
+        self.terminal.user_guess #Prompts the user to input a letter.
 
 
     def end_game(self): #Checks with terminal to see if user has guessed the word or has lost all their lives.

@@ -9,14 +9,14 @@ class Terminal():
         self.user_guess = input('Guess a letter [a-z]: ') #May need to add something to make sure the correct values are put in.
 
     
-    def print_hidden_word(): 
+    def print_hidden_word(self): 
         
         #This will print the underscores of the hidden word to the console inside of a list.
         #This is so we can reference the list and replace underscores with the actual guessed letter.
 
         hidden_word_underscores = []
 
-        for i in self.word.word_length: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
+        for i in self.word.random_word: #Loops through the word in the Word Class. For every letter it will add an _ to the hidden_word_underscores list.
 
             hidden_word_underscores.append("_" + " ") #Adds underscores to the hidden_word_underscores list. And a space to make it more readable: ____ vs. _ _ _ _ (Remember that it will affect index.)
         

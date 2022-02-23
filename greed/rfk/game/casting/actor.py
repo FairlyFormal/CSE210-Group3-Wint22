@@ -79,7 +79,7 @@ class Actor:
 
     def set_color(self, color):
         """Updates the color to the given one.
-        
+
         Args:
             color (Color): The given color.
         """

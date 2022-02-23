@@ -23,7 +23,7 @@ COLS = 60
 ROWS = 40
 CAPTION = "Greed"
 WHITE = Color(255, 255, 255)
-DEFAULT_ARTIFACTS = 40
+DEFAULT_ARTIFACTS = 3
 
 
 def main():
@@ -31,6 +31,10 @@ def main():
     # create the cast
     cast = Cast()
     
+
+    #in play
+    in_play = True
+
     # create the banner
     banner = Actor()
     banner.set_text("")
@@ -41,11 +45,11 @@ def main():
     
     # create the robot
     x = int(MAX_X / 2)
-    y = int(575)
+    y = int(MAX_Y - 25)
     position = Point(x, y)
 
     robot = Actor()
-    robot.set_text("#")
+    robot.set_text("('_')")
     robot.set_font_size(FONT_SIZE)
     robot.set_color(WHITE)
     robot.set_position(position)
@@ -55,11 +59,14 @@ def main():
 
     rock_or_gem = ['*', chr(48)]
 
+
+    
+
     for n in range(DEFAULT_ARTIFACTS):
         text = random.choice(rock_or_gem)
 
         x = random.randint(1, COLS - 1)
-        y = random.randint(1, ROWS - 1)
+        y = random.randint(1, 1)
         position = Point(x, y)
         position = position.scale(CELL_SIZE)
 
@@ -74,6 +81,9 @@ def main():
         artifact.set_color(color)
         artifact.set_position(position)
         cast.add_actor("artifacts", artifact)
+
+
+        
     
 
     # start the game

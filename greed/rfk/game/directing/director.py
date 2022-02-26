@@ -122,13 +122,13 @@ class Director:
             #artifacts all fall
 
             if artifact.get_text() == '*' and robot.get_position().get_y() == artifact.get_position().get_y() and artifact.get_position().get_x() in range(robot.get_position().get_x(),robot.get_position().get_x()+40):
-                #compare x and y or robot and all artifacts. If it touches a gem, add a point
+                #compare x and y or robot and all artifacts. If it touches a gem, add a point and destroy the gem
 
                 self.score += 1
                 cast.remove_actor("artifacts", artifact)
 
             elif artifact.get_text() == chr(48) and robot.get_position().get_y() == artifact.get_position().get_y() and artifact.get_position().get_x() in range(robot.get_position().get_x(),robot.get_position().get_x()+40):
-                #compare x and y or robot and all artifacts. If it touches a rock, lose a point
+                #compare x and y or robot and all artifacts. If it touches a rock, lose a point and destroy the rock
 
                 self.score -= 1
                 cast.remove_actor("artifacts", artifact)

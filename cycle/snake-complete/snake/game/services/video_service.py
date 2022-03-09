@@ -23,6 +23,7 @@ class VideoService:
         """Clears the buffer in preparation for the next rendering. This method should be called at
         the beginning of the game's output phase.
         """
+
         pyray.begin_drawing()
         pyray.clear_background(pyray.BLACK)
         if self._debug == True:

@@ -28,9 +28,9 @@ class DrawActorsAction(Action):
         """
 
         #Gets the two score classes from the scores group...
-        scores_list = cast.get_actors("scores")
-        player_one_score = cast.get_first_actor("scores")
-        player_two_score = scores_list[1]
+        # scores_list = cast.get_actors("scores")
+        # player_one_score = cast.get_first_actor("scores")
+        # player_two_score = scores_list[1]
 
 
         #Gets the two snake classes from the snakes group...
@@ -48,7 +48,5 @@ class DrawActorsAction(Action):
         # self._video_service.draw_actor(food)
         self._video_service.draw_actors(player_one_segments)
         self._video_service.draw_actors(player_two_segments)
-        self._video_service.draw_actor(player_one_score)
-        self._video_service.draw_actor(player_two_score)
         self._video_service.draw_actors(messages, True)
         self._video_service.flush_buffer()

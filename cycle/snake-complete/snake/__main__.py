@@ -2,7 +2,6 @@ import constants
 
 from game.casting.cast import Cast
 from game.casting.food import Food
-from game.casting.score import Score
 from game.casting.snake import Snake
 from game.scripting.script import Script
 from game.scripting.control_actors_action import ControlActorsAction
@@ -42,28 +41,28 @@ def main():
     # =====================
 
 
-    #Adds scores to the game...
-    cast.add_actor("scores", Score())
-    cast.add_actor("scores", Score())
+    # #Adds scores to the game...
+    # cast.add_actor("scores", Score())
+    # cast.add_actor("scores", Score())
 
-    #Gets the two scores...
-    player_scores = cast.get_actors("scores")
-
-
-
-    #Assigns the players to their scores in the list..
-    player_1_score = player_scores[0]
-    player_2_score = player_scores[1]
+    # #Gets the two scores...
+    # player_scores = cast.get_actors("scores")
 
 
-    player_2_score.set_text('Player 2:')
-    player_2_score.set_position(Point(800, 0))
+
+    # #Assigns the players to their scores in the list..
+    # player_1_score = player_scores[0]
+    # player_2_score = player_scores[1]
+
+
+    # player_2_score.set_text('Player 2:')
+    # player_2_score.set_position(Point(800, 0))
     
 
 
-    #Sets the text of the score on screen
-    player_1_score.set_text('Player 1:')
-    player_1_score.set_position(Point(0, 0))
+    # #Sets the text of the score on screen
+    # player_1_score.set_text('Player 1:')
+    # player_1_score.set_position(Point(0, 0))
 
     print("===================================")
     print(cast.get_all_actors())

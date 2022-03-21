@@ -14,6 +14,7 @@ from game.services.keyboard_service import KeyboardService
 from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
+from game.scripting.move_chicken import Chicken
 
 
 def main():
@@ -33,6 +34,7 @@ def main():
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))
+    script.add_action("update", Chicken())
     
     director = Director(video_service)
     director.start_game(cast, script)

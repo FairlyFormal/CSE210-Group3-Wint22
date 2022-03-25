@@ -32,6 +32,7 @@ class Snake(Actor):
             trailing.set_velocity(velocity)
 
     def get_head(self):
+
         return self._segments[0]
 
     def grow_tail(self, number_of_segments):

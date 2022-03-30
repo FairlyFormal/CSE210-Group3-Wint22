@@ -2,6 +2,7 @@ import constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
+from game.services.keyboard_service import KeyboardService
 
 class NextLevel(Action):
     """ This class initializes each level. 
@@ -18,4 +19,16 @@ class NextLevel(Action):
     Use it to start the game, move between levels, and do game over."""
 
     def __init__(self):
+        self._level = 1
+        self._playing = False
+
+    def execute(self,cast,script):
+        if self._playing:
+            print("Hunter is debugging.")
+            pass
+        else:
+            pass
+            # print("Zorldo: Chicken Chaser")
+            # print("")
+
         pass

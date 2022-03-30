@@ -40,6 +40,7 @@ class HandleCollisionsAction(Action):
         food = cast.get_actors("foods")
         snake = cast.get_first_actor("snakes")
         head = snake.get_head()
+        n=0
 
         for chicken in food:
             if head.get_position().get_y() == chicken.get_position().get_y() and chicken.get_position().get_x() in range(head.get_position().get_x(),head.get_position().get_x()+30):
@@ -47,6 +48,9 @@ class HandleCollisionsAction(Action):
                 points = chicken.get_points()
                 # snake.grow_tail(points)
                 score.add_points(points)
+                cast.remove_actor("foods",chicken)
+                # print("Hunter is debugging.")
+
                 # food.delete()
     
     def _handle_segment_collision(self, cast):

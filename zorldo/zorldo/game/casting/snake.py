@@ -17,6 +17,9 @@ class Snake(Actor):
         self._segments = []
         self._prepare_body()
 
+    def __del__(self):
+        print("Object deleted")
+
     def get_segments(self):
         return self._segments
 

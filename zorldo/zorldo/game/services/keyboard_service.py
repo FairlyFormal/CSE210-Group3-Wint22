@@ -1,5 +1,7 @@
 import pyray
 from game.shared.point import Point
+from game.casting.snake import Snake
+
 
 
 class KeyboardService:
@@ -10,6 +12,8 @@ class KeyboardService:
     Attributes:
         _keys (Dict[string, int]): The letter to key mapping.
     """
+
+    
 
     def __init__(self):
         """Constructs a new KeyboardService."""
@@ -42,3 +46,32 @@ class KeyboardService:
         """
         pyray_key = self._keys[key.lower()]
         return pyray.is_key_down(pyray_key)
+
+    def get_direction(self, x, y):
+        """Gets the selected direction based on the currently pressed keys.
+
+        Returns:
+            Point: The selected direction.
+        """
+        
+        dx = 0
+        dy = 0
+
+
+        if pyray.is_key_down(pyray.KEY_A):
+            dx = -1
+        
+        
+        if pyray.is_key_down(pyray.KEY_D):
+            dx = 1
+        
+        if pyray.is_key_down(pyray.KEY_W):
+            dy = -1
+        
+        if pyray.is_key_down(pyray.KEY_S):
+            dy = 1
+
+        direction = Point(dx, dy)
+        direction = direction.scale(self._cell_size)
+        
+        return direction

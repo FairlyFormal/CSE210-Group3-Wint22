@@ -25,3 +25,31 @@ class Score(Actor):
         """
         self._points += points
         self.set_text(f"Score: {self._points}")
+
+# import time
+
+# class Timer():
+
+
+#     def __init__(self):
+
+#         self.count = 59
+
+#     def countdown(self, t):
+    
+#         while t:
+
+#             mins, secs = divmod(t, 60)
+#             timer = '{:02d}'.format(secs)
+#             print(timer, end="\r")
+#             time.sleep(1)
+#             t -= 1
+
+#         print('game over')
+  
+
+
+# # function call
+
+# new_timer = Timer()
+# new_timer.countdown(new_timer.count)

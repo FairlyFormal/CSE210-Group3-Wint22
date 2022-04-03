@@ -61,7 +61,6 @@ class KeyboardService:
         if pyray.is_key_down(pyray.KEY_A):
             dx = -1
         
-        
         if pyray.is_key_down(pyray.KEY_D):
             dx = 1
         

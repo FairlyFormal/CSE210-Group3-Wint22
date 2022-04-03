@@ -42,7 +42,7 @@ class Cast:
     def get_all_actors(self):
         """Gets all of the actors in the cast.
         
-        Returns:
+        Returns:0
             List: All of the actors in the cast.
         """
         results = []

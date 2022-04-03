@@ -1,7 +1,9 @@
+from constants import *
 import constants
 from game.casting.actor import Actor
 from game.scripting.action import Action
 from game.shared.point import Point
+from game.casting.sound import Sound
 
 class HandleCollisionsAction(Action):
     """
@@ -14,9 +16,10 @@ class HandleCollisionsAction(Action):
         _is_game_over (boolean): Whether or not the game is over.
     """
 
-    def __init__(self):
+    def __init__(self, audio_service):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
+        self._audio_service = audio_service
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -44,29 +47,29 @@ class HandleCollisionsAction(Action):
 
         for chicken in food:
             if head.get_position().get_y() == chicken.get_position().get_y() and chicken.get_position().get_x() in range(head.get_position().get_x(),head.get_position().get_x()+30):
-                
+                sound = Sound(CHICKEN_SOUND)
                 points = chicken.get_points()
+                self.audio_service.play_sound(sound)     
                 # snake.grow_tail(points)
                 score.add_points(points)
                 cast.remove_actor("foods",chicken)
                 # print("Hunter is debugging.")
-
                 # food.delete()
     
     def _handle_segment_collision(self, cast):
         """Sets the game over flag if the snake collides with one of its segments.
         
-        Args:
-            cast (Cast): The cast of Actors in the game.
-        """
-        snake = cast.get_first_actor("snakes")
-        head = snake.get_segments()[0]
-        segments = snake.get_segments()[1:]
+        # Args:
+        #     cast (Cast): The cast of Actors in the game.
+        # """
+        # snake = cast.get_first_actor("snakes")
+        # head = snake.get_segments()[0]
+        # segments = snake.get_segments()[1:]
         
-        for segment in segments:
-            if head.get_position().equals(segment.get_position()):
-                self._is_game_over = True
-        
+        # for segment in segments:
+        #     if head.get_position().equals(segment.get_position()):
+        #         self._is_game_over = True
+        return
     def _handle_game_over(self, cast):
         """Shows the 'game over' message and turns the snake and food white if the game is over.
         

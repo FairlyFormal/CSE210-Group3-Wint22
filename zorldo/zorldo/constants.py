@@ -1,5 +1,7 @@
 from game.shared.color import Color
+import pathlib
 
+ROOT_PATH = pathlib.Path(__file__).parent.resolve().parent.resolve()
 
 COLUMNS = 40
 ROWS = 20
@@ -14,3 +16,5 @@ WHITE = Color(255, 255, 255)
 RED = Color(255, 0, 0)
 YELLOW = Color(255, 255, 0)
 GREEN = Color(0, 255, 0)
+
+CHICKEN_SOUND = str(ROOT_PATH.joinpath("zorldo/game/sounds/chicken.wav"))

@@ -16,15 +16,16 @@ from game.shared.color import Color
 from game.shared.point import Point
 from game.scripting.move_chicken import Chicken
 from game.scripting.next_level import NextLevel
+from game.scripting.timer import Timer
+
 
 
 def main():
     
     # create the cast
     cast = Cast()
-    cast.add_actor("foods", Food())
-    cast.add_actor("foods", Food())
-    cast.add_actor("foods", Food())
+    for i in range(100):
+        cast.add_actor("foods", Food())
     cast.add_actor("snakes", Snake())
     cast.add_actor("scores", Score())
    
@@ -34,7 +35,8 @@ def main():
 
     script = Script()
     script.add_action("input", ControlActorsAction(keyboard_service))
-    script.add_action("update", NextLevel())
+    # script.add_action("update", NextLevel())
+    script.add_action("update", Timer())
     script.add_action("update", MoveActorsAction())
     script.add_action("update", HandleCollisionsAction())
     script.add_action("output", DrawActorsAction(video_service))

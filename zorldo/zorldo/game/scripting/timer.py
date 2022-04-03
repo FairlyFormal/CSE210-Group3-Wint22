@@ -21,7 +21,7 @@ class Timer():
         if not self._is_game_over:
             # self._tell_them_to_get_chickens(cast)
             self._count_up()
-            if self._seconds > 5:
+            if self._seconds > 30:
                         self._is_game_over = True
             self._handle_game_over(cast)
 

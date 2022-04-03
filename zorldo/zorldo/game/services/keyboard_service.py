@@ -25,6 +25,8 @@ class KeyboardService:
         self._keys['k'] = pyray.KEY_K
         self._keys['l'] = pyray.KEY_L
 
+        self._keys['b'] = pyray.KEY_B
+
         # self._keys['b'] = pyray.Key_B
 
     def is_key_up(self, key):

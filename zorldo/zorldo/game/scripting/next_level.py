@@ -19,7 +19,7 @@ class NextLevel(Action):
     Use it to start the game, move between levels, and do game over."""
 
     def __init__(self):
-        self._level = 1
+        self._level = 0
         self._playing = False
 
     def execute(self,cast,script):
@@ -27,6 +27,7 @@ class NextLevel(Action):
             print("Hunter is debugging.")
             pass
         else:
+            # input("Hit enter to continue.")
             pass
             # print("Zorldo: Chicken Chaser")
             # print("")

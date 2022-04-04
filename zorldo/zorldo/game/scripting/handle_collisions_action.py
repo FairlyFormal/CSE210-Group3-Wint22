@@ -16,10 +16,9 @@ class HandleCollisionsAction(Action):
         _is_game_over (boolean): Whether or not the game is over.
     """
 
-    def __init__(self, audio_service):
+    def __init__(self):
         """Constructs a new HandleCollisionsAction."""
         self._is_game_over = False
-        self._audio_service = audio_service
 
     def execute(self, cast, script):
         """Executes the handle collisions action.
@@ -48,9 +47,7 @@ class HandleCollisionsAction(Action):
         for chicken in food:
             if head.get_position().get_y() == chicken.get_position().get_y() and chicken.get_position().get_x() in range(head.get_position().get_x(),head.get_position().get_x()+30):
                 sound = Sound(CHICKEN_SOUND)
-                points = chicken.get_points()
-                self.audio_service.play_sound(sound)     
-                # snake.grow_tail(points)
+                points = chicken.get_points()                # snake.grow_tail(points)
                 score.add_points(points)
                 cast.remove_actor("foods",chicken)
                 # print("Hunter is debugging.")
